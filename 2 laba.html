@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>    
+        var massive = [];
+        var counter = 0;
+        while(counter < 10){
+            if(Math.floor(Math.random() * 2 + 1) == 2){
+                massive[counter] = ( Math.floor(Math.random() * 100 + 1) * (-1));
+                counter = counter + 1;
+            }
+            else{
+                massive[counter] = Math.floor(Math.random() * 100 + 1);
+                counter = counter + 1;
+            }
+        }
+        
+        //произведение всех отрицательных чисел массива
+
+        var answerMinus = [];
+        var counerMinus = 0;
+        var count = 0;
+
+        while(counerMinus < 10){
+            if(massive[counerMinus] < 0){
+                answerMinus[count] = massive[counerMinus];
+                count = count + 1; 
+                counerMinus = counerMinus + 1;
+            }
+            else{
+                counerMinus = counerMinus + 1;
+            }
+        }
+
+        count = answerMinus[0];
+
+        for(var i = 1; i < answerMinus.length; i++){
+            count = count * answerMinus[i];
+        }
+    
+        alert("Произведение всех отрицательных чисел массива - " + count);
+
+        // сумма положительных эллементов расположенных до максимального элемента
+
+        // Нахожу максимальный элемент
+        var max = 0;
+        for(var i = 0; i < massive.length;i++){
+            if(max < massive[i]){
+                max = massive[i];
+            }
+        }
+
+        // Суммирую
+        var asnwer = 0;
+        for(var i = 0; i < massive.length; i++){
+            if(massive[i] == max) {break;}
+            if(massive[i] > 0){asnwer = asnwer + massive[i];}
+            else {
+                continue;
+            }
+        }
+
+        alert("Сумма положительных эллементов расположенных до максимального элемента - " + asnwer);
+
+        // Меняю порядок наоборот
+
+        alert("Было: " + massive);
+
+        for(var i = 0; i < massive.length/2; i++){
+            massive[i] = massive[massive.length-i-1];
+        }
+
+        alert("Стало: " + massive);
+    </script>
+</body>
+</html>
